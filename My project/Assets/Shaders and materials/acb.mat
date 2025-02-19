@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _distorsionAmount: 0.41
+    - _distorsionAmount: 1.43
     m_Colors:
     - _MainCol: {r: 13.580849, g: 0.24580723, b: 0, a: 0}
   m_BuildTextureStacks: []
