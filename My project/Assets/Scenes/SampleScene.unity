@@ -13294,7 +13294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityModifier: 12.96
-  cameraRef: {fileID: 1507575343}
+  cameraRef: {fileID: 330585546}
   _playerLife: 50
   direction: {x: 0, y: 0, z: 0}
   layer:
@@ -13430,6 +13430,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2f1e55c4-6d39-49ab-91ed-dac9f8a92a0c
     m_ActionName: Mov/New action[/Keyboard/space,/Keyboard/a,/Keyboard/d,/Keyboard/s,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 90837c36-0de0-46ef-b037-15ee46af0945
+    m_ActionName: Mov/world[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f6237752-d63b-417e-a64e-a3f032541241
+    m_ActionName: New action map/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Mov

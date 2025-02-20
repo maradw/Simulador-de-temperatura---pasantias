@@ -9,19 +9,19 @@
                     "name": "New action",
                     "type": "Value",
                     "id": "2f1e55c4-6d39-49ab-91ed-dac9f8a92a0c",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "world",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "90837c36-0de0-46ef-b037-15ee46af0945",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -105,10 +105,10 @@
                 {
                     "name": "",
                     "id": "9368075f-2c8f-409b-b1d4-ced4c5412083",
-                    "path": "",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "key",
                     "action": "world",
                     "isComposite": false,
                     "isPartOfComposite": false
