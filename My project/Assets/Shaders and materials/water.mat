@@ -42,7 +42,7 @@ Material:
     - _QueueOffset: 0
     - _WoobleX: 0
     - _WoobleZ: 0
-    - _quantity: 0.658
+    - _quantity: 1
     m_Colors:
     - _sideColor: {r: 0.2995194, g: 0.570216, b: 0.6698113, a: 0}
     - _sideColor_1: {r: 0, g: 0, b: 0, a: 0}
