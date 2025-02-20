@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "world",
+                    "type": "Button",
+                    "id": "90837c36-0de0-46ef-b037-15ee46af0945",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -74,7 +83,7 @@
                 {
                     "name": "forward",
                     "id": "28af78bb-10f5-437b-888e-3a21a2fd124d",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -85,13 +94,52 @@
                 {
                     "name": "backward",
                     "id": "052d8bd1-7035-4a94-bc89-2b97357c40b9",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9368075f-2c8f-409b-b1d4-ced4c5412083",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "world",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "New action map",
+            "id": "5f7dfb40-e519-410f-b07b-6dec432508a0",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "f6237752-d63b-417e-a64e-a3f032541241",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "66c264a8-fee5-4143-900d-f3b00f87ee5c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
