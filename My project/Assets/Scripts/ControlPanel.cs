@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlPanel : MonoBehaviour
 {
-
+    public static event Action OnButtonFirePressed;
+    public static event Action OnSimulatorOnOff;
 
     [SerializeField] private GameObject[] _controlButton; 
     private Camera mainCamera;
@@ -48,8 +50,6 @@ public class ControlPanel : MonoBehaviour
     
     void OnButtonClick(int buttonIndex)
     {
-        //Debug.Log("Botón presionado: " + buttonIndex);
-
 
         switch (buttonIndex)
         {
@@ -57,7 +57,8 @@ public class ControlPanel : MonoBehaviour
                 Debug.Log("Botón 1 presionado - energizado");
                 break;
             case 1:
-                Debug.Log("Botón 2 presionado - off/on");
+                Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
+                OnSimulatorOnOff?.Invoke();
                 break;
 
             case 2:
@@ -66,6 +67,7 @@ public class ControlPanel : MonoBehaviour
 
             case 3:
                 Debug.Log("Botón 4 presionado - quemador");
+                OnButtonFirePressed?.Invoke();
                 break;
 
             case 4:
