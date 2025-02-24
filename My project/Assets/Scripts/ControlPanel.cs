@@ -8,6 +8,9 @@ public class ControlPanel : MonoBehaviour
     public static event Action OnButtonFirePressed;
     public static event Action OnSimulatorOnOff;
 
+    public static event Action OnEmergency;
+
+
     [SerializeField] private GameObject[] _controlButton; 
     private Camera mainCamera;
 
@@ -84,6 +87,7 @@ public class ControlPanel : MonoBehaviour
 
             case 7:
                 Debug.Log("Botón 8 presionado - parada de emergencia");
+                OnEmergency?.Invoke();
                 break;
             default:
                 Debug.Log("novale wazaaaaaa");
