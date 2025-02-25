@@ -28,4 +28,9 @@ public class particleController : MonoBehaviour
     {
         _fireParticle.Play(true);
     }
+    void StopFire()
+    {
+        //este sera otro evnto
+        _fireParticle.Play(false);
+    }
 }

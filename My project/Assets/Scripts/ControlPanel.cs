@@ -62,6 +62,9 @@ public class ControlPanel : MonoBehaviour
             case 1:
                 Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
                 OnSimulatorOnOff?.Invoke();
+                //cuando se enciende, se prende automaticamente el fuego
+                OnButtonFirePressed?.Invoke();
+
                 break;
 
             case 2:
@@ -70,7 +73,7 @@ public class ControlPanel : MonoBehaviour
 
             case 3:
                 Debug.Log("Botón 4 presionado - quemador");
-                OnButtonFirePressed?.Invoke();
+                //cambio al boton de encendido, prendido automatico
                 break;
 
             case 4:
