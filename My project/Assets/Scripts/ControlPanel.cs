@@ -8,6 +8,8 @@ public class ControlPanel : MonoBehaviour
     public static event Action OnButtonFirePressed;
     public static event Action OnSimulatorOnOff;
 
+    public static event Action OnTemperatureHigh;
+
     public static event Action OnEmergency;
 
     [SerializeField] private Light[] _panelLights; 
