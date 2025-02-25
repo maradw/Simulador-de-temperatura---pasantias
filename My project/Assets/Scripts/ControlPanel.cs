@@ -19,7 +19,10 @@ public class ControlPanel : MonoBehaviour
     {
         mainCamera = Camera.main;  
         Debug.Log("olacausa");
-        _panelLights.di
+        for(int i = 0; i<_panelLights.Length; i++)
+        {
+            _panelLights[i].enabled = false;
+        }
     }
 
     void Update()
@@ -65,6 +68,7 @@ public class ControlPanel : MonoBehaviour
                 Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
                 OnSimulatorOnOff?.Invoke();
                 _panelLights[0].enabled = !_panelLights[0].enabled;
+                _panelLights[2].enabled = !_panelLights[2].enabled;
                 //cuando se enciende, se prende automaticamente el fuego
                 OnButtonFirePressed?.Invoke();
 
