@@ -10,6 +10,7 @@ public class ControlPanel : MonoBehaviour
 
     public static event Action OnEmergency;
 
+    [SerializeField] private Light[] _panelLights; 
 
     [SerializeField] private GameObject[] _controlButton; 
     private Camera mainCamera;
@@ -18,6 +19,7 @@ public class ControlPanel : MonoBehaviour
     {
         mainCamera = Camera.main;  
         Debug.Log("olacausa");
+        _panelLights.di
     }
 
     void Update()
@@ -62,6 +64,7 @@ public class ControlPanel : MonoBehaviour
             case 1:
                 Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
                 OnSimulatorOnOff?.Invoke();
+                _panelLights[0].enabled = !_panelLights[0].enabled;
                 //cuando se enciende, se prende automaticamente el fuego
                 OnButtonFirePressed?.Invoke();
 
