@@ -751,10 +751,10 @@
     "m_Guid": {
         "m_GuidSerialized": "1b86b398-01c4-4a9f-b182-867561239e3a"
     },
-    "m_Name": "quantity",
+    "m_Name": "waterLevel",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "quantity",
-    "m_DefaultReferenceName": "_quantity",
+    "m_RefNameGeneratedByDisplayName": "waterLevel",
+    "m_DefaultReferenceName": "_waterLevel",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -764,7 +764,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 1.1299999952316285,
     "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.0,
@@ -2046,7 +2046,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "92ed4a2f1b6e44ea9c2aca0ad22f371f",
     "m_Id": 0,
-    "m_DisplayName": "quantity",
+    "m_DisplayName": "waterLevel",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3014,7 +3014,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 0,
+    "m_Space": 2,
     "m_PositionSource": 0
 }
 

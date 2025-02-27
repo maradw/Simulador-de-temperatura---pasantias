@@ -42,12 +42,13 @@ Material:
     - _QueueOffset: 0
     - _WoobleX: 3.52
     - _WoobleZ: 3.37
-    - _quantity: 0.099
+    - _quantity: 0.933
+    - _waterLevel: 1.13
     m_Colors:
     - _sideColor: {r: 0.2995194, g: 0.570216, b: 0.6698113, a: 0}
     - _sideColor_1: {r: 0, g: 0, b: 0, a: 0}
     - _sideColor_2: {r: 0, g: 0, b: 0, a: 0}
-    - _topColor: {r: 0.21456033, g: 0.5118039, b: 0.7735849, a: 0}
+    - _topColor: {r: 0.77254903, g: 0.21568626, b: 0.5407824, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6910117200980360451
 MonoBehaviour:
