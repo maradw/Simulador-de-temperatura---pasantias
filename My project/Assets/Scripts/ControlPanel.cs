@@ -15,7 +15,15 @@ public class ControlPanel : MonoBehaviour
 
     [SerializeField] private Light[] _panelLights; 
 
-    [SerializeField] private GameObject[] _controlButton; 
+    [SerializeField] private GameObject[] _controlButton;
+
+    //boolpqsi
+    bool _switchState = false;
+    //estado triple wazaaaa
+    float _stateType = 0;
+
+    //switchers
+    [SerializeField] private GameObject[] _switchers;
     private Camera mainCamera;
 
     void Start()
@@ -69,17 +77,56 @@ public class ControlPanel : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
+               // _switchState = true;
+                if (_switchState)
+                {
+                    _switchers[0].transform.eulerAngles = new Vector3(0, 0, -27);
+                   
+                    OnSimulatorStop?.Invoke();
+                }
+                else
+                {
+                    _switchers[0].transform.eulerAngles = new Vector3(0, 0, 30);
+                    OnButtonFirePressed?.Invoke();
+                    Debug.Log("qfue");
+                }
+                _switchState = !_switchState;
                 OnSimulatorOnOff?.Invoke();
                 _panelLights[0].enabled = !_panelLights[0].enabled;
                 _panelLights[2].enabled = !_panelLights[2].enabled;
+                //_switchers[0].transform.eulerAngles =new Vector3 (0,0,-27);
                 //cuando se enciende, se prende automaticamente el fuego
-                OnButtonFirePressed?.Invoke();
-
+                
+               
                 break;
 
             case 2:
                 Debug.Log("Botón 3 presionado - manual/oof/automatic");
+                switch (_stateType)
+                {
+                    case 0:
+                        //off
+                        Debug.Log("oe");
+                        _switchers[1].transform.eulerAngles = new Vector3(0, 0, 0);
+                        break;
+                    case 1:
+                        //manual
+                        _switchers[1].transform.eulerAngles = new Vector3(0, 0, -50);
+                        Debug.Log("no");
+                        break;
+                    case 2:
+                        //automatic
+                        _switchers[1].transform.eulerAngles = new Vector3(0, 0, 50);
+                        Debug.Log("funciona");
+                        break;
+
+                      
+                    
+                }
+                _stateType = (_stateType + 1) % 3;
                 break;
+
+               
 
             case 3:
                 Debug.Log("Botón 4 presionado - quemador");

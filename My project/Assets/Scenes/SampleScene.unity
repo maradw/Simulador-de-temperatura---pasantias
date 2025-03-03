@@ -6415,7 +6415,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1f3e02aaa218a0541b29eb95d3c9ff80, type: 2}
+      objectReference: {fileID: 2100000, guid: 87a86c2fb8fea39478135d522d92d221, type: 2}
     - target: {fileID: -8168318557823840755, guid: 94de448903a578145b160287a36f4eb4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8385,7 +8385,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bba72d91c98222e48ac9f00ed59ed1ef, type: 2}
+      objectReference: {fileID: 2100000, guid: 87840bf8f1f5964449a5e56e78e079f2, type: 2}
     - target: {fileID: 7150832543688460125, guid: 94de448903a578145b160287a36f4eb4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13700,11 +13700,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7901965365810808197, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87840bf8f1f5964449a5e56e78e079f2, type: 2}
+    - target: {fileID: -3557344198883155101, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_Name
+      value: switcher2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2627c601144df7d4b86cd1ff48182640,
         type: 3}
       propertyPath: m_Name
       value: botonesXD (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4213852362423303188, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3b8adc09a2a88a41826a76edb37be3c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13792,11 +13807,61 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7901965365810808197, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87840bf8f1f5964449a5e56e78e079f2, type: 2}
+    - target: {fileID: -3557344198883155101, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_Name
+      value: switcher1
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.9946704
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5412373
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -479524537111765623, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2627c601144df7d4b86cd1ff48182640,
         type: 3}
       propertyPath: m_Name
       value: botonesXD
       objectReference: {fileID: 0}
+    - target: {fileID: 4213852362423303188, guid: 2627c601144df7d4b86cd1ff48182640,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3b8adc09a2a88a41826a76edb37be3c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19315,6 +19380,9 @@ MonoBehaviour:
   - {fileID: 1648597612}
   - {fileID: 834038534}
   - {fileID: 1821612836}
+  _switchers:
+  - {fileID: 335385873}
+  - {fileID: 122085664}
 --- !u!4 &1257065117
 Transform:
   m_ObjectHideFlags: 0
@@ -19490,7 +19558,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1628f06adb30dcb4ab6373480fc0e488,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.69
+      value: 26.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1628f06adb30dcb4ab6373480fc0e488,
         type: 3}
@@ -19544,7 +19612,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1628f06adb30dcb4ab6373480fc0e488,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1628f06adb30dcb4ab6373480fc0e488,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bba72d91c98222e48ac9f00ed59ed1ef, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 1628f06adb30dcb4ab6373480fc0e488,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bba72d91c98222e48ac9f00ed59ed1ef, type: 2}
     - target: {fileID: 919132149155446097, guid: 1628f06adb30dcb4ab6373480fc0e488,
@@ -19830,7 +19908,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
