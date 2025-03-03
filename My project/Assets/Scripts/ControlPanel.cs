@@ -7,6 +7,7 @@ public class ControlPanel : MonoBehaviour
 {
     public static event Action OnButtonFirePressed;
     public static event Action OnSimulatorOnOff;
+    public static event Action OnSimulatorStop;
 
     public static event Action OnTemperatureHigh;
 
@@ -87,6 +88,7 @@ public class ControlPanel : MonoBehaviour
 
             case 4:
                 Debug.Log("Botón 5 presionado - bomba agua");
+                //cuando el tanque se llen de agua
                 break;
 
             case 5:
@@ -100,6 +102,7 @@ public class ControlPanel : MonoBehaviour
             case 7:
                 Debug.Log("Botón 8 presionado - parada de emergencia");
                 OnEmergency?.Invoke();
+                OnSimulatorStop?.Invoke();
                 break;
             default:
                 Debug.Log("novale wazaaaaaa");

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WatterLevel : MonoBehaviour
 {
-    Material _waterShader;
+    [SerializeField] private Material _waterShader;
     float _level;
     // Start is called before the first frame update
     void Start()

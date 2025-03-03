@@ -140,7 +140,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EMISSION_WEIGHT: 1
     - _EnvironmentReflections: 1
-    - _Fill: 0.4
+    - _Fill: 0.613
     - _Fill_Noise_Clamp_Max: 0.267
     - _Fill_Noise_Clamp_Min: 0.604
     - _Fill_Noise_Scale: 1
@@ -176,7 +176,7 @@ Material:
     m_Colors:
     - _BASE_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_Color: {r: 0.069143474, g: 0.048059788, b: 0.3537736, a: 1}
+    - _Base_Color: {r: 0.3529412, g: 0.04705882, b: 0.25356156, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

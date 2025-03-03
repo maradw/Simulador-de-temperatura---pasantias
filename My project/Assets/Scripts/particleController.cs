@@ -14,10 +14,12 @@ public class particleController : MonoBehaviour
     void OnEnable()
     {
         ControlPanel.OnButtonFirePressed += StartFire;
+        ControlPanel.OnSimulatorStop += StopFire;
     }
     void OnDisable()
     {
         ControlPanel.OnButtonFirePressed -= StartFire;
+        ControlPanel.OnSimulatorStop -= StopFire;
     }
 
     void Update()
@@ -31,6 +33,6 @@ public class particleController : MonoBehaviour
     void StopFire()
     {
         //este sera otro evnto
-        _fireParticle.Play(false);
+        _fireParticle.Stop(true);
     }
 }

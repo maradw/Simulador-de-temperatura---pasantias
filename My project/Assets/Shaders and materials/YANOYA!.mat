@@ -53,10 +53,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _fiil: 2.2
+    - _alpha: 0.852
+    - _fiil: 2.38
     - _power: 0.611
     m_Colors:
-    - _edge: {r: 0, g: 1, b: 0.7374418, a: 1}
+    - _edge: {r: 0, g: 0.7176471, b: 0.7374418, a: 1}
     - _side: {r: 0.63584906, g: 0.8990727, b: 1, a: 0}
-    - _top: {r: 0.82452834, g: 0.95562786, b: 1, a: 1}
+    - _top: {r: 0.5981132, g: 0.90176105, b: 1, a: 1}
   m_BuildTextureStacks: []
