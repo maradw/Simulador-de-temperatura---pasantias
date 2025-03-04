@@ -1,26 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class WatterLevel : MonoBehaviour
 {
     [SerializeField] private Material _waterShader;
-    float _level;
+    [SerializeField] private float _fillSpeed = 0.01f;
+
+    [SerializeField] TextMeshProUGUI _waterLevel;
+
+    float _level = -5.4f;
+
+    float _minLevel = -4f;
+    float _maxLevel = 6.5f;
     // Start is called before the first frame update
     void Start()
     {
        // _waterShader.SetFloat("_WaterLevel", _level);
-       _level = _waterShader.GetFloat("_fiil");
+      // _level = _waterShader.GetFloat("_fiil"); esto guarda automaticamnete el valor de fill en la sesion anteroir un scriptableobj gratis wazaaaaa
     }
     void FillUpWater()
     {
-        _level += Time.deltaTime;
+        _level += Time.deltaTime * _fillSpeed;
+        _waterShader.SetFloat("_fiil", _level);
+        // Debug.Log(_level);
+        if (_level <= _minLevel)
+        {
+            // Debug.Log("se esta secando causa");
+        }
+        else if (_level >= _maxLevel)
+        {
+            //Debug.Log("mucha awa causa");
+        }
+        _waterLevel.text = "water level: " + _level;
     }
     // Update is called once per frame
     void Update()
     {
-        FillUpWater();
-        _waterShader.SetFloat("_fiil", _level);
-        Debug.Log(_level);
+        //FillUpWater();
+      
+    }
+    void OnEnable()
+    {
+        ControlPanel.OnSimulatorOn += FillUpWater;
+    }
+    void OnDisable()
+    {
+        ControlPanel.OnSimulatorOn -= FillUpWater;
+
     }
 }
