@@ -19760,7 +19760,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: bba72d91c98222e48ac9f00ed59ed1ef, type: 2}
+      objectReference: {fileID: 2100000, guid: 6b8c77bfe6cebbf45bea9039f42efb53, type: 2}
     - target: {fileID: 919132149155446097, guid: 1628f06adb30dcb4ab6373480fc0e488,
         type: 3}
       propertyPath: m_Name
@@ -19936,6 +19936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   temperature: {fileID: 1268447023}
   particleControl: {fileID: 1552497452}
+  _waterControl: {fileID: 1705105495}
 --- !u!1 &1507575341
 GameObject:
   m_ObjectHideFlags: 0

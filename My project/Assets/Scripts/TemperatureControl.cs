@@ -12,18 +12,21 @@ public class TemperatureControl : MonoBehaviour
     float _ConstantHeating = 0.1f; // Ajusta qué tan rápido sube la temperatura
     float _time = 0f;
 
-
+    Renderer tankRenderer;
+    float _waterLevel;
 
     bool lightOn;
     [SerializeField] TextMeshProUGUI temperature;
 
    [SerializeField] particleController particleControl;
+    [SerializeField] WatterLevel _waterControl;
     // Start is called before the first frame update
     void Start()
     {
-       //particleControl = GetComponent<particleController>();
-
-       
+       // _waterLevel = _waterControl.GetWaterLevel();
+        //particleControl = GetComponent<particleController>();
+        tankRenderer = GetComponent<Renderer>();// despues que funcione primero XD
+        //_waterControl.GetWaterLevel();
     }
     void OnEnable()
     {
@@ -37,9 +40,19 @@ public class TemperatureControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-       
-        
+        CheckWater();
+
+    }
+    void CheckWater()
+    {
+        if (_waterControl.GetWaterLevel() >= -2.5f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
+        {
+            //
+            _ConstantHeating = 0.5f; //noseo
+            Debug.Log("ya no funciona wazaa");
+        }
+
+
     }
     void CheckTemperature()
     {

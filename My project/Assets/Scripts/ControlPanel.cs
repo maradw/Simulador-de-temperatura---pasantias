@@ -47,9 +47,10 @@ public class ControlPanel : MonoBehaviour
         {
            // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
             OnSimulatorOn?.Invoke();
-            if (temperatureControl.isOverload() == true)
+            if (temperatureControl.isOverload() == true)//creo q vamos a tener q cambiar ese if x un while
             {
                 _panelLights[1].enabled = true;
+                //_panelLights[3].enabled = false; //y la luz para cuando
                 Debug.Log("ymiluzamarillacausa");
             }
             
@@ -107,7 +108,7 @@ public class ControlPanel : MonoBehaviour
                     {
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, 30);
                         OnButtonFirePressed?.Invoke();
-                       // OnSimulatorOn?.Invoke(); //neceista mas condiciones carajo
+                       
                         Debug.Log("qfue");
                     }
                     _switchState = !_switchState;
@@ -168,7 +169,7 @@ public class ControlPanel : MonoBehaviour
 
                 case 7:
                     Debug.Log("Botón 8 presionado - parada de emergencia");
-                    OnEmergency?.Invoke();
+                   // OnEmergency?.Invoke();
                     OnSimulatorStop?.Invoke();
                     break;
                 default:

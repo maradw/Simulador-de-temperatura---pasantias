@@ -26,11 +26,13 @@ public class WatterLevel : MonoBehaviour
         // Debug.Log(_level);
         if (_level <= _minLevel)
         {
-            // Debug.Log("se esta secando causa");
+            // Debug.Log("se esta secando causa, prende la luz roja");
         }
         else if (_level >= _maxLevel)
         {
             //Debug.Log("mucha awa causa");
+            //UnfillWater();
+            
         }
         _waterLevel.text = "water level: " + _level;
     }
@@ -38,12 +40,21 @@ public class WatterLevel : MonoBehaviour
     {
         //activarcuando el agua esta demasiado llena
         _level -= Time.deltaTime * _fillSpeed;
+         _waterShader.SetFloat("_fiil", _level);
         //Debug.Log("waza, se va el agua" + _level);
+    }
+    void StopWater()
+    {
+        _level += Time.deltaTime * 0;
+    }
+    public float GetWaterLevel()
+    {
+        return _level;
     }
     void Update()
     {
         //FillUpWater();
-        UnfillWater();
+        //UnfillWater();
     }
     void OnEnable()
     {
