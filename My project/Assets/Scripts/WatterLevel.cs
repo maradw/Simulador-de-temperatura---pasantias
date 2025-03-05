@@ -45,7 +45,7 @@ public class WatterLevel : MonoBehaviour
     }
     void StopWater()
     {
-        _level += Time.deltaTime * 0;
+       // _level += Time.deltaTime;
     }
     public float GetWaterLevel()
     {
