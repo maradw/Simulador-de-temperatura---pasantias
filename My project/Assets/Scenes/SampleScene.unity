@@ -19515,6 +19515,7 @@ MonoBehaviour:
   - {fileID: 1648597612}
   - {fileID: 834038534}
   - {fileID: 1821612836}
+  temperatureControl: {fileID: 1450317067}
   _switchers:
   - {fileID: 335385873}
   - {fileID: 122085664}
@@ -19934,6 +19935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temperature: {fileID: 1268447023}
+  particleControl: {fileID: 1552497452}
 --- !u!1 &1507575341
 GameObject:
   m_ObjectHideFlags: 0

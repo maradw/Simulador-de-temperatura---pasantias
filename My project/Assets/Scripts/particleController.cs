@@ -30,7 +30,7 @@ public class particleController : MonoBehaviour
     {
         _fireParticle.Play(true);
     }
-    void StopFire()
+    public void StopFire()
     {
         //este sera otro evnto
         _fireParticle.Stop(true);

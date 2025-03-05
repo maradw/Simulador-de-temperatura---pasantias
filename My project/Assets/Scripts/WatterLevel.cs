@@ -34,11 +34,16 @@ public class WatterLevel : MonoBehaviour
         }
         _waterLevel.text = "water level: " + _level;
     }
-    // Update is called once per frame
+    void UnfillWater()
+    {
+        //activarcuando el agua esta demasiado llena
+        _level -= Time.deltaTime * _fillSpeed;
+        //Debug.Log("waza, se va el agua" + _level);
+    }
     void Update()
     {
         //FillUpWater();
-      
+        UnfillWater();
     }
     void OnEnable()
     {

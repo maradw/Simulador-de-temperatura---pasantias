@@ -6,18 +6,24 @@ using TMPro;
 
 public class TemperatureControl : MonoBehaviour
 {
-    float _MaxTemperature=  120;
+    float _MaxTemperature=  110;
     float _CurrentTemperture;
     float _Inicialtemperature = 27;
     float _ConstantHeating = 0.1f; // Ajusta qué tan rápido sube la temperatura
     float _time = 0f;
 
+
+
+    bool lightOn;
     [SerializeField] TextMeshProUGUI temperature;
 
+   [SerializeField] particleController particleControl;
     // Start is called before the first frame update
     void Start()
     {
-        
+       //particleControl = GetComponent<particleController>();
+
+       
     }
     void OnEnable()
     {
@@ -42,9 +48,18 @@ public class TemperatureControl : MonoBehaviour
         //Debug.Log("ola causa, la temperatura es de : " + _CurrentTemperture);
         temperature.text = "Temperatura:" + _CurrentTemperture;
 
-        if (_CurrentTemperture >= _MaxTemperature)
+        if (_CurrentTemperture>= _MaxTemperature)
         {
+            particleControl.StopFire();
+            lightOn = true;
+            //Debug.Log("noseapagacausa");
             //apagar el fuego, prender la luz amarilla
         }
+       // lightOn = false;
+    }
+
+    public bool isOverload()
+    {
+        return lightOn ;
     }
 }

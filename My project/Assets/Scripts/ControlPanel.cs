@@ -9,6 +9,7 @@ public class ControlPanel : MonoBehaviour
     public static event Action OnSimulatorOn;
     public static event Action OnSimulatorStop;
 
+    
     public static event Action OnTemperatureHigh;
 
     public static event Action OnEmergency;
@@ -16,6 +17,9 @@ public class ControlPanel : MonoBehaviour
     [SerializeField] private Light[] _panelLights;
 
     [SerializeField] private GameObject[] _controlButton;
+
+
+    [SerializeField] TemperatureControl temperatureControl;
 
     //boolpqsi
     bool _switchState = false;
@@ -41,14 +45,19 @@ public class ControlPanel : MonoBehaviour
         DetectButtonPress();
         if (_switchState)
         {
-            Debug.Log("prendio");
+           // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
             OnSimulatorOn?.Invoke();
+            if (temperatureControl.isOverload() == true)
+            {
+                _panelLights[1].enabled = true;
+                Debug.Log("ymiluzamarillacausa");
+            }
             
         }
         else
         {
 
-            Debug.Log("ta apagao");
+           // Debug.Log("ta apagao");
         }
 
         void DetectButtonPress()
