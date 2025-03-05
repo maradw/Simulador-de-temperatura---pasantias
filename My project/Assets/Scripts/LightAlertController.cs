@@ -27,12 +27,12 @@ public class LightAlertController : MonoBehaviour
     }
     void OnEnable()
     {
-        ControlPanel.OnSimulatorOn += LightsOn;
+       // ControlPanel.OnSimulatorOn += LightsOn;
         ControlPanel.OnEmergency += EmergencyStop;
     }
     void OnDisable()
     {
-        ControlPanel.OnSimulatorOn -= LightsOn;
+        //ControlPanel.OnSimulatorOn -= LightsOn;
         ControlPanel.OnEmergency -= EmergencyStop;
     }
     IEnumerator CallCoroutines()

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+//using UnityEngine.SocialPlatforms.Impl;
 
 public class particleController : MonoBehaviour
 {
@@ -13,12 +13,12 @@ public class particleController : MonoBehaviour
     }
     void OnEnable()
     {
-        ControlPanel.OnButtonFirePressed += StartFire;
+        ControlPanel.OnFireOn += StartFire;
         ControlPanel.OnSimulatorStop += StopFire;
     }
     void OnDisable()
     {
-        ControlPanel.OnButtonFirePressed -= StartFire;
+        ControlPanel.OnFireOn -= StartFire;
         ControlPanel.OnSimulatorStop -= StopFire;
     }
 

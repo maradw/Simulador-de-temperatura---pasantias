@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ControlPanel : MonoBehaviour
 {
-    public static event Action OnButtonFirePressed;
+    public static event Action OnFireOn;
     public static event Action OnSimulatorOn;
     public static event Action OnSimulatorStop;
 
@@ -107,7 +107,7 @@ public class ControlPanel : MonoBehaviour
                     else
                     {
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, 30);
-                        OnButtonFirePressed?.Invoke();
+                        OnFireOn?.Invoke();
                        
                         Debug.Log("qfue");
                     }
@@ -170,7 +170,7 @@ public class ControlPanel : MonoBehaviour
                 case 7:
                     Debug.Log("Botón 8 presionado - parada de emergencia");
                    // OnEmergency?.Invoke();
-                    OnSimulatorStop?.Invoke();
+                    OnSimulatorStop?.Invoke();//aquiseapaga
                     break;
                 default:
                     Debug.Log("novale wazaaaaaa");
