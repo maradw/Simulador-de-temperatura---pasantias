@@ -65,4 +65,13 @@ public class WatterLevel : MonoBehaviour
         ControlPanel.OnSimulatorOn -= FillUpWater;
 
     }
+    void AutomaticFill()
+    {
+        if (_level <= _minLevel)
+        {
+            FillUpWater();
+            Debug.Log("se esta secando causa, prende la luz roja");
+        }
+    }
+    
 }

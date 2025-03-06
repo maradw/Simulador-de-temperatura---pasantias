@@ -9,7 +9,7 @@ public class TemperatureControl : MonoBehaviour
     float _MaxTemperature=  110;
     float _CurrentTemperture;
     float _Inicialtemperature = 27;
-    float _ConstantHeating = 0.1f; // Ajusta qué tan rápido sube la temperatura
+    float _ConstantHeating = 0.005f; // Ajusta qué tan rápido sube la temperatura
     float _time = 0f;
 
     Renderer tankRenderer;
@@ -40,7 +40,7 @@ public class TemperatureControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckWater();
+       // CheckWater();
 
     }
     void CheckWater()
@@ -48,8 +48,13 @@ public class TemperatureControl : MonoBehaviour
         if (_waterControl.GetWaterLevel() >= -2.5f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
         {
             //
-            _ConstantHeating = 0.5f; //noseo
+           //_time = 0f;
+            _ConstantHeating = 0.005f; //noseo
             Debug.Log("ya no funciona wazaa");
+        }
+        else
+        {
+            _ConstantHeating = 0.05f;
         }
 
 
@@ -68,7 +73,19 @@ public class TemperatureControl : MonoBehaviour
             //Debug.Log("noseapagacausa");
             //apagar el fuego, prender la luz amarilla
         }
-       // lightOn = false;
+
+        if (_waterControl.GetWaterLevel() >= -1f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
+        {
+            //
+            //_time = 0f;
+           _ConstantHeating = 0.004f; //noseo
+            Debug.Log("ya no funciona wazaa");
+        }
+        else
+        {
+            _ConstantHeating = 0.005f;
+        }
+        // lightOn = false;
     }
 
     public bool isOverload()
