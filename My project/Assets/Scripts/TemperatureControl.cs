@@ -20,9 +20,20 @@ public class TemperatureControl : MonoBehaviour
 
    [SerializeField] particleController particleControl;
     [SerializeField] WatterLevel _waterControl;
-    // Start is called before the first frame update
+
+    //header q no se como se hacia XD
+
+
+    float q; //transferencia de calor (resultante creo XD
+    float h; // coeficiente de transferencia de convección
+    float a; //area en m2
+    // use _time here
+    float c; //diferencia de temperatura entre la superficie y el liquido
+
+
     void Start()
     {
+        //formula 
        // _waterLevel = _waterControl.GetWaterLevel();
         //particleControl = GetComponent<particleController>();
         tankRenderer = GetComponent<Renderer>();// despues que funcione primero XD
