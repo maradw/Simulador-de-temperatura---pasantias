@@ -14,10 +14,17 @@ public class WatterLevel : MonoBehaviour
     float _minLevel = -4f;
     float _maxLevel = 6.5f;
     // Start is called before the first frame update
+
+
+    float waterTemperature = 25f;
     void Start()
     {
        // _waterShader.SetFloat("_WaterLevel", _level);
       // _level = _waterShader.GetFloat("_fiil"); esto guarda automaticamnete el valor de fill en la sesion anteroir un scriptableobj gratis wazaaaaa
+    }
+    float GetTemperature()
+    {
+        return waterTemperature;
     }
     void FillUpWater()
     {
