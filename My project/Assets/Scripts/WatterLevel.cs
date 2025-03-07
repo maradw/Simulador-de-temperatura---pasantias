@@ -22,7 +22,7 @@ public class WatterLevel : MonoBehaviour
        // _waterShader.SetFloat("_WaterLevel", _level);
       // _level = _waterShader.GetFloat("_fiil"); esto guarda automaticamnete el valor de fill en la sesion anteroir un scriptableobj gratis wazaaaaa
     }
-    float GetTemperature()
+    public float GetTemperature()
     {
         return waterTemperature;
     }
