@@ -47,7 +47,7 @@ Material:
     - _distorsionAmount: 7.33
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _MainCol: {r: 62.9964, g: 0, b: 1.4822756, a: 0}
+    - _MainCol: {r: 251.9856, g: 0, b: 5.9291024, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3050771580354229102
 MonoBehaviour:

@@ -38,7 +38,12 @@ public class WatterLevel : MonoBehaviour
             _isWaterLow = true;
             // Debug.Log("se esta secando causa, prende la luz roja");
         }
-       
+        else if(_level>= _minLevelB)
+        {
+            _isWaterLow = false;
+        }
+
+
         else if (_level >= _maxLevelA && _level <= _maxLevelB)
         {
             // Debug.Log("mucha awa causa");
@@ -47,7 +52,7 @@ public class WatterLevel : MonoBehaviour
         }
         else
         {
-            _isWaterLow = false;
+           
         }
         _waterLevel.text = "water level: " + _level;
     }
@@ -76,11 +81,12 @@ public class WatterLevel : MonoBehaviour
     void OnEnable()
     {
         ControlPanel.OnSimulatorOn += FillUpWater;
+        ControlPanel.OnAutomatic += AutomaticFill;
     }
     void OnDisable()
     {
         ControlPanel.OnSimulatorOn -= FillUpWater;
-
+        ControlPanel.OnAutomatic -= AutomaticFill;
     }
     void StopFill()
     {
