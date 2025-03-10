@@ -7,7 +7,7 @@ using TMPro;
 public class TemperatureControl : MonoBehaviour
 {
     float _MaxTemperature=  110;
-    float _CurrentTemperture;
+    public float _CurrentTemperture;
     float _Inicialtemperature = 27;
     float _ConstantHeating = 0.005f; // Ajusta qué tan rápido sube la temperatura
     float _time = 0f;
@@ -33,6 +33,7 @@ public class TemperatureControl : MonoBehaviour
     float _waterTemp;
 
     float _waterBoil;
+
     void Start()
     {
         //formula 
@@ -71,13 +72,13 @@ public class TemperatureControl : MonoBehaviour
             //
            //_time = 0f;
             _ConstantHeating = 0.005f; //noseo
-            Debug.Log("ya no funciona wazaa");
+           // Debug.Log("ya no funciona wazaa");
         }
         else
         {
             _ConstantHeating = 0.05f;
         }
-
+        // esto paso a check temperature
 
     }
     void CheckTemperature()
@@ -112,7 +113,13 @@ public class TemperatureControl : MonoBehaviour
         }
         // lightOn = false;
     }
+    void AutomaticMOde()
+    {
+        if(_waterLevel <= -4)
+        {
 
+        }
+    }
     public bool isOverload()
     {
         return lightOn ;

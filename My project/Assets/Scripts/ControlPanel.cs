@@ -9,7 +9,7 @@ public class ControlPanel : MonoBehaviour
     public static event Action OnSimulatorOn;
     public static event Action OnSimulatorStop;
 
-    
+
     public static event Action OnTemperatureHigh;
 
     public static event Action OnEmergency;
@@ -20,9 +20,10 @@ public class ControlPanel : MonoBehaviour
 
 
     [SerializeField] TemperatureControl temperatureControl;
-
+    [SerializeField] WatterLevel waterLevel;
     //boolpqsi
     bool _switchState = false;
+    float _isFillingWater;
     //estado triple wazaaaa
     float _stateType = 0;
 
@@ -53,12 +54,22 @@ public class ControlPanel : MonoBehaviour
                 //_panelLights[3].enabled = false; //y la luz para cuando
                 Debug.Log("ymiluzamarillacausa");
             }
+            while(waterLevel.GetIsWaterLow() == true)
+            {
+                _panelLights[4].enabled = true;
+                Debug.Log("ymiluzrojacausa");
+            }
+
             
         }
         else
         {
 
            // Debug.Log("ta apagao");
+        }
+        if (temperatureControl._CurrentTemperture <= 115)
+        {
+            //apagar el fuego
         }
 
         void DetectButtonPress()
@@ -117,8 +128,6 @@ public class ControlPanel : MonoBehaviour
                     _panelLights[2].enabled = !_panelLights[2].enabled;
                     //_switchers[0].transform.eulerAngles =new Vector3 (0,0,-27);
                     //cuando se enciende, se prende automaticamente el fuego
-
-
                     break;
 
                 case 2:
@@ -138,17 +147,11 @@ public class ControlPanel : MonoBehaviour
                         case 2:
                             //automatic
                             _switchers[1].transform.eulerAngles = new Vector3(0, 0, 50);
-                            Debug.Log("funciona");
+                            Debug.Log("funciona"); // llamar a atomatic fill, falta condicion de apagado y eso
                             break;
-
-
-
                     }
                     _stateType = (_stateType + 1) % 3;
                     break;
-
-
-
                 case 3:
                     Debug.Log("Botón 4 presionado - quemador");
                     //cambio al boton de encendido, prendido automatico
@@ -170,7 +173,7 @@ public class ControlPanel : MonoBehaviour
                 case 7:
                     Debug.Log("Botón 8 presionado - parada de emergencia");
                    // OnEmergency?.Invoke();
-                    OnSimulatorStop?.Invoke();//aquiseapaga
+                    OnSimulatorStop?.Invoke();//aquiseapaga falta añadir el agua al mismo evento
                     break;
                 default:
                     Debug.Log("novale wazaaaaaa");

@@ -11,11 +11,13 @@ public class WatterLevel : MonoBehaviour
 
     float _level = -5.4f;
 
-    float _minLevel = -4f;
-    float _maxLevel = 6.5f;
+    float _minLevelA = -5.4f; //rango minimo
+    float _minLevelB = -3.4f;
+    float _maxLevelA = 3.5f; //ranog maximo
+    float _maxLevelB = 6.5f;
     // Start is called before the first frame update
 
-
+    bool _isWaterLow;
     float waterTemperature = 25f;
     void Start()
     {
@@ -31,17 +33,27 @@ public class WatterLevel : MonoBehaviour
         _level += Time.deltaTime * _fillSpeed;
         _waterShader.SetFloat("_fiil", _level);
         // Debug.Log(_level);
-        if (_level <= _minLevel)
+        if (_level >= _minLevelA && _level <= _minLevelB )
         {
+            _isWaterLow = true;
             // Debug.Log("se esta secando causa, prende la luz roja");
         }
-        else if (_level >= _maxLevel)
+       
+        else if (_level >= _maxLevelA && _level <= _maxLevelB)
         {
-            //Debug.Log("mucha awa causa");
+            // Debug.Log("mucha awa causa");
             //UnfillWater();
-            
+
+        }
+        else
+        {
+            _isWaterLow = false;
         }
         _waterLevel.text = "water level: " + _level;
+    }
+    public bool GetIsWaterLow()
+    {
+        return _isWaterLow;
     }
     void UnfillWater()
     {
@@ -50,10 +62,7 @@ public class WatterLevel : MonoBehaviour
          _waterShader.SetFloat("_fiil", _level);
         //Debug.Log("waza, se va el agua" + _level);
     }
-    void StopWater()
-    {
-       // _level += Time.deltaTime;
-    }
+    
     public float GetWaterLevel()
     {
         return _level;
@@ -62,6 +71,7 @@ public class WatterLevel : MonoBehaviour
     {
         //FillUpWater();
         //UnfillWater();
+        //AutomaticFill();
     }
     void OnEnable()
     {
@@ -72,12 +82,16 @@ public class WatterLevel : MonoBehaviour
         ControlPanel.OnSimulatorOn -= FillUpWater;
 
     }
+    void StopFill()
+    {
+
+    }
     void AutomaticFill()
     {
-        if (_level <= _minLevel)
+        if (_level >= _minLevelB && _level <=_maxLevelA )
         {
             FillUpWater();
-            Debug.Log("se esta secando causa, prende la luz roja");
+            Debug.Log("modo automatico wazaaaaaaaa");
         }
     }
     
