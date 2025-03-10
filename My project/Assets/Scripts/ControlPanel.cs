@@ -10,9 +10,9 @@ public class ControlPanel : MonoBehaviour
     public static event Action OnSimulatorStop;
     public static event Action OnAutomatic;
 
-    public static event Action OnTemperatureHigh;
+    public static event Action OnTemperatureHigh;// XDfantasmaXD
 
-    public static event Action OnEmergency;
+    public static event Action OnEmergency; //Solo lucecitas
 
     [SerializeField] private Light[] _panelLights;
 
@@ -27,6 +27,8 @@ public class ControlPanel : MonoBehaviour
     //estado triple wazaaaa
     float _stateType = 0;
 
+
+    bool isOn = false;
     //switchers
     [SerializeField] private GameObject[] _switchers;
     private Camera mainCamera;
@@ -48,7 +50,7 @@ public class ControlPanel : MonoBehaviour
         {
            // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
          
-            OnSimulatorOn?.Invoke();
+           // OnSimulatorOn?.Invoke();
             if (temperatureControl.isOverload() == true)//creo q vamos a tener q cambiar ese if x un while
             {
                 _panelLights[1].enabled = true;
@@ -105,56 +107,58 @@ public class ControlPanel : MonoBehaviour
 
             switch (buttonIndex)
             {
-                case 0:
-                    Debug.Log("Botón 1 presionado - energizado");
-                    break;
                 case 1:
                     Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
                     // _switchState = true;
                     if (_switchState)
                     {
+                        //apagado//apagado//apagado//apagado//apagado//apagado//apagado//apagado
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, -27);
-
                         OnSimulatorStop?.Invoke();
-                        _panelLights[0].enabled = false;
+                        // _panelLights[0].enabled = false;
+                        _panelLights[4].enabled = false;
                     }
                     else
                     {
+                        //encendido//encendido//encendido//encendido//encendido//encendido//encendido
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, 30);
                         OnFireOn?.Invoke();
-                        _panelLights[2].enabled = true;
+                        //_panelLights[2].enabled = true;
                         Debug.Log("qfue");
                     }
                     _switchState = !_switchState;
 
-                    //_panelLights[0].enabled = !_panelLights[0].enabled;
-                    //_panelLights[2].enabled = !_panelLights[2].enabled;
+                    _panelLights[0].enabled = !_panelLights[0].enabled;
+                    _panelLights[2].enabled = !_panelLights[2].enabled;
                     //_switchers[0].transform.eulerAngles =new Vector3 (0,0,-27);
                     //cuando se enciende, se prende automaticamente el fuego
                     break;
-
                 case 2:
                     Debug.Log("Botón 3 presionado - manual/oof/automatic");
-                    switch (_stateType)
+                    if (_switchState)
                     {
-                        case 0:
-                            //off
-                            Debug.Log("oe");
-                            _switchers[1].transform.eulerAngles = new Vector3(0, 0, 0);
-                            break;
-                        case 1:
-                            //manual
-                            _switchers[1].transform.eulerAngles = new Vector3(0, 0, -50);
-                            Debug.Log("no");
-                            break;
-                        case 2:
-                            //automatic
-                            _switchers[1].transform.eulerAngles = new Vector3(0, 0, 50);
-                            OnAutomatic?.Invoke();
-                            Debug.Log("funciona"); // llamar a atomatic fill, falta condicion de apagado y eso
-                            break;
+                        switch (_stateType)
+                        {
+                            case 0:
+                                //manual
+                                _switchers[1].transform.eulerAngles = new Vector3(0, 0, -50);
+                                Debug.Log("no");
+                                break;
+                            case 1:
+                                //off
+                                Debug.Log("oe");
+                                _switchers[1].transform.eulerAngles = new Vector3(0, 0, 0);
+                                break;
+
+                            case 2:
+                                //automatic
+                                _switchers[1].transform.eulerAngles = new Vector3(0, 0, 50);
+                                OnAutomatic?.Invoke();
+                                Debug.Log("funciona"); // llamar a atomatic fill, falta condicion de apagado y eso
+                                break;
+                        }
+                        _stateType = (_stateType + 1) % 3;
                     }
-                    _stateType = (_stateType + 1) % 3;
                     break;
                 case 3:
                     Debug.Log("Botón 4 presionado - quemador");

@@ -30,8 +30,12 @@ public class WatterLevel : MonoBehaviour
     }
     void FillUpWater()
     {
+        //solo esto deberia ir en el update creo *inserte gif de bebe ceniza*
         _level += Time.deltaTime * _fillSpeed;
         _waterShader.SetFloat("_fiil", _level);
+        // hasta aqui
+
+
         // Debug.Log(_level);
         if (_level >= _minLevelA && _level <= _minLevelB )
         {
@@ -54,7 +58,7 @@ public class WatterLevel : MonoBehaviour
         {
            
         }
-        _waterLevel.text = "water level: " + _level;
+        _waterLevel.text = "water level: " + _level; // esto tambien la parecer
     }
     public bool GetIsWaterLow()
     {
@@ -92,12 +96,22 @@ public class WatterLevel : MonoBehaviour
     {
 
     }
+   // bool 
     void AutomaticFill()
     {
         if (_level >= _minLevelB && _level <=_maxLevelA )
         {
             FillUpWater();
             Debug.Log("modo automatico wazaaaaaaaa");
+        }
+        else if (_level <= _minLevelB )
+        {
+            Debug.Log("para iniciar wazaaaa");
+            FillUpWater();
+        }
+        else
+        {
+            Debug.Log("sufiente agua, wazaaaaaaa");
         }
     }
     

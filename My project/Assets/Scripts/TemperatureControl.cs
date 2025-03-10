@@ -84,7 +84,7 @@ public class TemperatureControl : MonoBehaviour
     void CheckTemperature()
     {
         _time += Time.deltaTime;
-        _CurrentTemperture = _MaxTemperature + (_Inicialtemperature - _MaxTemperature) * Mathf.Exp(-_ConstantHeating * _time);
+        _CurrentTemperture = _MaxTemperature + (_Inicialtemperature - _MaxTemperature) * Mathf.Exp(-_ConstantHeating * _time); // otro booleano *gif bebe ceniza *
         //Debug.Log("ola causa, la temperatura es de : " + _CurrentTemperture);
         temperature.text = "Temperatura:" + _CurrentTemperture;
 
@@ -117,7 +117,7 @@ public class TemperatureControl : MonoBehaviour
     {
         if(_waterLevel <= -4)
         {
-
+            //esto creo q ya no
         }
     }
     public bool isOverload()
