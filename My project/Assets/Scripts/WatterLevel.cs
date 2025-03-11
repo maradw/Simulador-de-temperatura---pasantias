@@ -97,19 +97,19 @@ public class WatterLevel : MonoBehaviour
 
     }
    // bool 
-    void AutomaticFill()
+    void AutomaticFill() //tambien en update
     {
-        if (_level >= _minLevelB && _level <=_maxLevelA )
+        if (_level >= _minLevelB && _level <=_maxLevelA )//actualizar en el proceso
         {
             FillUpWater();
             Debug.Log("modo automatico wazaaaaaaaa");
         }
-        else if (_level <= _minLevelB )
+        else if (_level <= _minLevelB )//bool de encendido
         {
             Debug.Log("para iniciar wazaaaa");
             FillUpWater();
         }
-        else
+        else //estable
         {
             Debug.Log("sufiente agua, wazaaaaaaa");
         }
