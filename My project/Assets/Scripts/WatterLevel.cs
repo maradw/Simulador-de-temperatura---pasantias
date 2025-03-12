@@ -26,13 +26,13 @@ public class WatterLevel : MonoBehaviour
     }
     void OnEnable()
     {
-        ControlPanel.OnSimulatorOn += FillUpWater;
+       // ControlPanel.OnSimulatorOn += FillUpWater;
         ControlPanel.OnAutomatic += AutomaticFill;
         ControlPanel.OnManual += ManualFill;
     }
     void OnDisable()
     {
-        ControlPanel.OnSimulatorOn -= FillUpWater;
+        //ControlPanel.OnSimulatorOn -= FillUpWater;
         ControlPanel.OnAutomatic -= AutomaticFill;
         ControlPanel.OnManual -= ManualFill;
     }

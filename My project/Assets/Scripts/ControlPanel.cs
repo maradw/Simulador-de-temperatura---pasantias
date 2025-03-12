@@ -49,18 +49,33 @@ public class ControlPanel : MonoBehaviour
         DetectButtonPress();
         if (_switchState)
         {
-           // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
-            if(_stateType == 0)
+            OnSimulatorOn?.Invoke();
+            OnFireOn?.Invoke();
+            // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
+            if (_stateType == 0)
             {
                 Debug.Log("questapasando" +  _stateType);
                // OnSimulatorOn?.Invoke();
                 OnAutomatic?.Invoke();
+
+                _panelLights[3].enabled = true;
             }
             else if (_stateType == 1)
             {
-                 OnSimulatorOn?.Invoke();
+                OnManual?.Invoke();
+                // OnSimulatorOn?.Invoke();
+                _panelLights[3].enabled = true;
                 Debug.Log("qsalgayacsm" + _stateType);
             }
+            else
+            {
+                _panelLights[3].enabled = false;
+            }
+
+            /*if (_stateType == 0 || _stateType == 1 || _stateType == 2)
+            {
+                
+            }*/
             // OnSimulatorOn?.Invoke();
             if (temperatureControl.isOverload() == true)//creo q vamos a tener q cambiar ese if x un while
             {
