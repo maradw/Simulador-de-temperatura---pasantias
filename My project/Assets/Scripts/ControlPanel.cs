@@ -9,6 +9,7 @@ public class ControlPanel : MonoBehaviour
     public static event Action OnSimulatorOn;
     public static event Action OnSimulatorStop;
     public static event Action OnAutomatic;
+    public static event Action OnManual;
 
     public static event Action OnTemperatureHigh;// XDfantasmaXD
 
@@ -60,7 +61,7 @@ public class ControlPanel : MonoBehaviour
             else if(waterLevel.GetIsWaterLow() == true) //miedo terror ozuna
             {
                 _panelLights[4].enabled = true;
-                Debug.Log("ymiluzrojacausa"); 
+                //Debug.Log("ymiluzrojacausa"); 
             }
             else
             {
@@ -70,7 +71,7 @@ public class ControlPanel : MonoBehaviour
 
             
         }
-        
+        //en el automatico
         if (temperatureControl._CurrentTemperture <= 115)
         {
             //apagar el fuego
@@ -142,19 +143,30 @@ public class ControlPanel : MonoBehaviour
                             case 0:
                                 //manual
                                 _switchers[1].transform.eulerAngles = new Vector3(0, 0, -50);
-                                Debug.Log("no");
+                                OnManual?.Invoke();
+                                Debug.Log("manual");
                                 break;
                             case 1:
                                 //off
-                                Debug.Log("oe");
+                                Debug.Log("apagado");
                                 _switchers[1].transform.eulerAngles = new Vector3(0, 0, 0);
                                 break;
 
                             case 2:
                                 //automatic
                                 _switchers[1].transform.eulerAngles = new Vector3(0, 0, 50);
+                                //en el automatico
+                                // prueba2 
                                 OnAutomatic?.Invoke();
-                                Debug.Log("funciona"); // llamar a atomatic fill, falta condicion de apagado y eso
+                                //prueba2
+                                /*if (temperatureControl._CurrentTemperture <= 111)// ******ver si se actualiza el valor**********
+                                {
+                                    OnSimulatorStop?.Invoke(); 
+                                    //apagar el fuego en teoria esto ya esrta en el metodo de check suscrito a automatic
+                                }*/
+
+
+                                Debug.Log("automatico"); // llamar a atomatic fill, falta condicion de apagado y eso
                                 break;
                         }
                         _stateType = (_stateType + 1) % 3;

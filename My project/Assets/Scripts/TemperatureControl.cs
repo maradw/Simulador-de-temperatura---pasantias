@@ -50,27 +50,22 @@ public class TemperatureControl : MonoBehaviour
     }
     void OnEnable()
     {
-        ControlPanel.OnSimulatorOn += CheckTemperature;
+        ControlPanel.OnSimulatorOn += CalculateTemperature;
+        ControlPanel.OnAutomatic += Check;
     }
     void OnDisable()
     {
-        ControlPanel.OnSimulatorOn -= CheckTemperature;
-      
+        ControlPanel.OnSimulatorOn -= CalculateTemperature;
+        ControlPanel.OnAutomatic -= Check;
     }
     // Update is called once per frame
     void Update()
     {
         //la diferencia entre las tempraturas de ambos cuerpos va a ser un tema feo Xd
         // CheckWater();
-
+        temperature.text = "Temperatura:" + _CurrentTemperture;
         //xmientras:
-        if (_CurrentTemperture >= _MaxTemperature)
-        {
-            particleControl.StopFire();
-            lightOn = true;
-            //Debug.Log("noseapagacausa");
-            //apagar el fuego, prender la luz amarilla
-        }
+       
 
         if (_waterControl.GetWaterLevel() >= -1f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
         {
@@ -88,7 +83,16 @@ public class TemperatureControl : MonoBehaviour
         }
 
     }
-
+    void Check()
+    {
+        if (_CurrentTemperture >= _MaxTemperature)
+        {
+            particleControl.StopFire();
+            lightOn = true;
+            //Debug.Log("noseapagacausa");
+            //apagar el fuego, prender la luz amarilla
+        }
+    }
     void CheckWater() //esto no
     {
         if (_waterControl.GetWaterLevel() >= -2.5f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
@@ -103,27 +107,69 @@ public class TemperatureControl : MonoBehaviour
             _ConstantHeating = 0.05f;
         }
         // esto paso a check temperature
-
+        
     }
     void CalculateTemperature()
     {
         _time += Time.deltaTime;  
         _CurrentTemperture = _MaxTemperature + (_Inicialtemperature - _MaxTemperature) * Mathf.Exp(-_ConstantHeating * _time); // otro booleano *gif bebe ceniza *
         //Debug.Log("ola causa, la temperatura es de : " + _CurrentTemperture);
-        temperature.text = "Temperatura:" + _CurrentTemperture;
+     
     }
+    
+   
+    public bool isOverload()
+    {
+        return lightOn ;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void AutomaticMOde()
+    {
+        if (_waterLevel <= -4)
+        {
+            //esto creo q ya no
+        }
+    }
+
+
+
+
     void CheckTemperature()
     {
         /* _time += Time.deltaTime;
          _CurrentTemperture = _MaxTemperature + (_Inicialtemperature - _MaxTemperature) * Mathf.Exp(-_ConstantHeating * _time); // otro booleano *gif bebe ceniza *
          //Debug.Log("ola causa, la temperatura es de : " + _CurrentTemperture);
          temperature.text = "Temperatura:" + _CurrentTemperture;
-        */ 
+        */
         //nomas
 
 
         //en el update
-        if (_CurrentTemperture>= _MaxTemperature)
+        if (_CurrentTemperture >= _MaxTemperature)
         {
             particleControl.StopFire();
             lightOn = true;
@@ -135,7 +181,7 @@ public class TemperatureControl : MonoBehaviour
         {
             //
             //_time = 0f;
-           _ConstantHeating = 0.004f; //noseo
+            _ConstantHeating = 0.004f; //noseo
             Debug.Log("ya no funciona wazaa");
         }
         else
@@ -147,16 +193,5 @@ public class TemperatureControl : MonoBehaviour
             //activar el vapor, vfx supongo, y disminuir agua minimamente//unfill cambia la velocidad
         }
         // lightOn = false; 
-    }
-    void AutomaticMOde()
-    {
-        if(_waterLevel <= -4)
-        {
-            //esto creo q ya no
-        }
-    }
-    public bool isOverload()
-    {
-        return lightOn ;
     }
 }

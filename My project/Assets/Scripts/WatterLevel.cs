@@ -24,25 +24,27 @@ public class WatterLevel : MonoBehaviour
        // _waterShader.SetFloat("_WaterLevel", _level);
       // _level = _waterShader.GetFloat("_fiil"); esto guarda automaticamnete el valor de fill en la sesion anteroir un scriptableobj gratis wazaaaaa
     }
-    public float GetTemperature()
+    void OnEnable()
     {
-        return waterTemperature;
+        ControlPanel.OnSimulatorOn += FillUpWater;
+        ControlPanel.OnAutomatic += AutomaticFill;
+        ControlPanel.OnManual += ManualFill;
     }
-    void FillUpWater()
+    void OnDisable()
     {
-        //solo esto deberia ir en el update creo *inserte gif de bebe ceniza*
-        _level += Time.deltaTime * _fillSpeed;
-        _waterShader.SetFloat("_fiil", _level);
-        // hasta aqui
-
-
-        // Debug.Log(_level);
-        if (_level >= _minLevelA && _level <= _minLevelB )
+        ControlPanel.OnSimulatorOn -= FillUpWater;
+        ControlPanel.OnAutomatic -= AutomaticFill;
+        ControlPanel.OnManual -= ManualFill;
+    }
+    void Update()
+    {
+        _waterLevel.text = "water level: " + _level;
+        if (_level >= _minLevelA && _level <= _minLevelB)
         {
             _isWaterLow = true;
             // Debug.Log("se esta secando causa, prende la luz roja");
         }
-        else if(_level>= _minLevelB)
+        else if (_level >= _minLevelB)
         {
             _isWaterLow = false;
         }
@@ -56,15 +58,34 @@ public class WatterLevel : MonoBehaviour
         }
         else
         {
-           
+
         }
-        _waterLevel.text = "water level: " + _level; // esto tambien la parecer
+        // esto tambien la parecer
+        //FillUpWater();
+        //UnfillWater();
+       // AutomaticFill();//probar
+    }
+   
+    public float GetTemperature()
+    {
+        return waterTemperature;
+    }
+    void FillUpWater()
+    {
+        //solo esto deberia ir en el update creo *inserte gif de bebe ceniza*
+        _level += Time.deltaTime * _fillSpeed;
+        _waterShader.SetFloat("_fiil", _level);
+        // hasta aqui
+
+
+        // Debug.Log(_level);
+       
     }
     public bool GetIsWaterLow()
     {
         return _isWaterLow;
     }
-    void UnfillWater()
+    void UnfillWater()//para el modo manual, automatico no seria necesario
     {
         //activarcuando el agua esta demasiado llena
         _level -= Time.deltaTime * _fillSpeed;
@@ -76,29 +97,14 @@ public class WatterLevel : MonoBehaviour
     {
         return _level;
     }
-    void Update()
+    
+   void ManualFill()
     {
-        //FillUpWater();
-        //UnfillWater();
-        //AutomaticFill();
+        FillUpWater();
     }
-    void OnEnable()
+    void AutomaticFill() //funciona
     {
-        ControlPanel.OnSimulatorOn += FillUpWater;
-        ControlPanel.OnAutomatic += AutomaticFill;
-    }
-    void OnDisable()
-    {
-        ControlPanel.OnSimulatorOn -= FillUpWater;
-        ControlPanel.OnAutomatic -= AutomaticFill;
-    }
-    void StopFill()
-    {
-
-    }
-   // bool 
-    void AutomaticFill() //tambien en update
-    {
+        Debug.Log("pqnoprende");
         if (_level >= _minLevelB && _level <=_maxLevelA )//actualizar en el proceso
         {
             FillUpWater();
@@ -109,10 +115,42 @@ public class WatterLevel : MonoBehaviour
             Debug.Log("para iniciar wazaaaa");
             FillUpWater();
         }
+        else if (_level >= _maxLevelA && _level <= _maxLevelB)//nofijoXD
+        {
+            // Debug.Log("mucha awa causa");
+            UnfillWater();
+
+        }
         else //estable
         {
             Debug.Log("sufiente agua, wazaaaaaaa");
         }
+
     }
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void StopFill()
+    {
+
+    }
 }

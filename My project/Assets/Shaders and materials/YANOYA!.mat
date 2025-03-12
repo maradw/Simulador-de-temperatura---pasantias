@@ -54,7 +54,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _alpha: 0.852
-    - _fiil: -5.3996825
+    - _fiil: -5.397468
     - _power: 0.611
     m_Colors:
     - _baseColor: {r: 0, g: 0, b: 0, a: 0}
