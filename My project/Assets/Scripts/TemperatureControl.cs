@@ -6,10 +6,10 @@ using TMPro;
 
 public class TemperatureControl : MonoBehaviour
 {
-    float _MaxTemperature=  105;
+    public float _MaxTemperature=  105;//NOSE
     public float _CurrentTemperture;
     float _Inicialtemperature = 27;
-    float _ConstantHeating = 0.05f; // Ajusta qué tan rápido sube la temperatura
+    float _ConstantHeating = 1f; // Ajusta qué tan rápido sube la temperatura
     float _time = 0f;
     float _dangerTemp = 110;
     Renderer tankRenderer;
@@ -70,32 +70,40 @@ public class TemperatureControl : MonoBehaviour
         if (_waterControl.GetWaterLevel() >= -1f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
         {
             //_time = 0f;
-            _ConstantHeating = 0.04f; //noseo
+            _ConstantHeating = 1f; //noseo
             Debug.Log("ya no funciona wazaa");
         }
         else
         {
-            _ConstantHeating = 0.05f;
+            _ConstantHeating = 1f;
         }
         if (_waterTemp >= _waterBoil)
         {
             //activar el vapor, vfx supongo, y disminuir agua minimamente//unfill cambia la velocidad
         }
 
-    }
-    void Check()
-    {
+        //ebug.Log("DIAVLO, no prende luz amarilla");
         if (_CurrentTemperture >= 103f)//_MaxTemperature)
         {
-           
+
             lightOn = true;
             //Debug.Log("noseapagacausa");
             //apagar el fuego, prender la luz amarilla
         }
-        else if(_CurrentTemperture>=_MaxTemperature)
+
+    }
+
+    void Check()
+    {
+        Debug.Log("DIAVLO,apagate p");
+        if (_CurrentTemperture>=_MaxTemperature)
         {
             particleControl.StopFire();
         }
+    }
+    void Aywe()
+    {
+
     }
     void CheckWater() //esto no
     {

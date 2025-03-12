@@ -14,12 +14,14 @@ public class particleController : MonoBehaviour
     void OnEnable()
     {
         ControlPanel.OnFireOn += StartFire;
-        ControlPanel.OnSimulatorStop += StopFire;
+        //ControlPanel.OnSimulatorStop += StopFire;
+        ControlPanel.OnFireOff += StopFire;
     }
     void OnDisable()
     {
         ControlPanel.OnFireOn -= StartFire;
-        ControlPanel.OnSimulatorStop -= StopFire;
+        //ControlPanel.OnSimulatorStop -= StopFire;
+        ControlPanel.OnFireOff -= StopFire;
     }
 
     void Update()

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LightAlertController : MonoBehaviour
 {
     Renderer _alarmRenderer;
-
+    [SerializeField] AudioSource _alarmSource;
     Color _baseColor = Color.gray;
     float _baseTransparency;
     float _renderT;
@@ -21,6 +22,10 @@ public class LightAlertController : MonoBehaviour
     {
         
     }
+    void PlayAlarm()
+    {
+        _alarmSource.Play();
+    }
     void LightsOn()
     {
         StartCoroutine(CallCoroutines()); 
@@ -29,11 +34,13 @@ public class LightAlertController : MonoBehaviour
     {
        // ControlPanel.OnSimulatorOn += LightsOn;
         ControlPanel.OnEmergency += EmergencyStop;
+        ControlPanel.OnEmergency += PlayAlarm;
     }
     void OnDisable()
     {
         //ControlPanel.OnSimulatorOn -= LightsOn;
         ControlPanel.OnEmergency -= EmergencyStop;
+        ControlPanel.OnEmergency -= PlayAlarm;
     }
     IEnumerator CallCoroutines()
     {
@@ -84,7 +91,7 @@ public class LightAlertController : MonoBehaviour
     {
         Color color1 = Color.red;
         float blinkDuration = 0.5f;
-        int blinkTimes = 8;
+        int blinkTimes = 4;
 
         for (int i = 0; i < blinkTimes; i++)
         {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ControlPanel : MonoBehaviour
 {
     public static event Action OnFireOn;
+    public static event Action OnFireOff;
     public static event Action OnSimulatorOn;
     public static event Action OnSimulatorStop;
     public static event Action OnAutomatic;
@@ -49,8 +50,12 @@ public class ControlPanel : MonoBehaviour
         DetectButtonPress();
         if (_switchState)
         {
+            if(temperatureControl._CurrentTemperture<= temperatureControl._MaxTemperature)
+            {
+                OnFireOn?.Invoke(); //problema; detecta el cambio de estado y enciende el fuego
+            }
             OnSimulatorOn?.Invoke();
-            OnFireOn?.Invoke();
+            
             // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
             if (_stateType == 0)
             {
@@ -80,18 +85,19 @@ public class ControlPanel : MonoBehaviour
             if (temperatureControl.isOverload() == true)//creo q vamos a tener q cambiar ese if x un while
             {
                 _panelLights[1].enabled = true;
+                //OnFireOff?.Invoke();
                 //_panelLights[3].enabled = false; //y la luz para cuando
                 Debug.Log("ymiluzamarillacausa");
             }
             else if(waterLevel.GetIsWaterLow() == true) //miedo terror ozuna
             {
                 _panelLights[4].enabled = true;
-                //Debug.Log("ymiluzrojacausa"); 
+                Debug.Log("ymiluzrojacausa"); 
             }
             else
             {
                 _panelLights[4].enabled = false;
-                _panelLights[1].enabled = false;
+               // _panelLights[1].enabled = false;
             }
 
             
@@ -168,7 +174,7 @@ public class ControlPanel : MonoBehaviour
                             case 0:
                                 //manual
                                 _switchers[1].transform.eulerAngles = new Vector3(0, 0, -50);
-                                OnManual?.Invoke();
+                               // OnManual?.Invoke();
                                 Debug.Log("manual");
                                 break;
                             case 1:
@@ -217,7 +223,7 @@ public class ControlPanel : MonoBehaviour
 
                 case 7:
                     Debug.Log("Botón 8 presionado - parada de emergencia");
-                   // OnEmergency?.Invoke();
+                    OnEmergency?.Invoke();
                     OnSimulatorStop?.Invoke();//aquiseapaga falta añadir el agua al mismo evento //agua y temp luces quemador
                     _panelLights[2].enabled = false;
                     break;
