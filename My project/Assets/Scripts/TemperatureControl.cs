@@ -85,14 +85,14 @@ public class TemperatureControl : MonoBehaviour
     }
     void Check()
     {
-        if (_CurrentTemperture >= _MaxTemperature)
+        if (_CurrentTemperture >= 103f)//_MaxTemperature)
         {
            
             lightOn = true;
             //Debug.Log("noseapagacausa");
             //apagar el fuego, prender la luz amarilla
         }
-        else if(_CurrentTemperture>= _dangerTemp)
+        else if(_CurrentTemperture>=_MaxTemperature)
         {
             particleControl.StopFire();
         }
