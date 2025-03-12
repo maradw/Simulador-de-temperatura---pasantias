@@ -26,7 +26,7 @@ public class ControlPanel : MonoBehaviour
     bool _switchState = false;
     bool _isFillingWater;
     //estado triple wazaaaa
-    float _stateType = 0;
+    float _stateType = 2;
 
 
     bool isOn = false;
@@ -50,8 +50,18 @@ public class ControlPanel : MonoBehaviour
         if (_switchState)
         {
            // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
-         
-           // OnSimulatorOn?.Invoke();
+            if(_stateType == 0)
+            {
+                Debug.Log("questapasando" +  _stateType);
+               // OnSimulatorOn?.Invoke();
+                OnAutomatic?.Invoke();
+            }
+            else if (_stateType == 1)
+            {
+                 OnSimulatorOn?.Invoke();
+                Debug.Log("qsalgayacsm" + _stateType);
+            }
+            // OnSimulatorOn?.Invoke();
             if (temperatureControl.isOverload() == true)//creo q vamos a tener q cambiar ese if x un while
             {
                 _panelLights[1].enabled = true;
@@ -123,7 +133,7 @@ public class ControlPanel : MonoBehaviour
                     {
                         //encendido//encendido//encendido//encendido//encendido//encendido//encendido
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, 30);
-                        OnFireOn?.Invoke();
+                        //OnFireOn?.Invoke();
                         //_panelLights[2].enabled = true;
                         Debug.Log("qfue");
                     }
@@ -157,7 +167,7 @@ public class ControlPanel : MonoBehaviour
                                 _switchers[1].transform.eulerAngles = new Vector3(0, 0, 50);
                                 //en el automatico
                                 // prueba2 
-                                OnAutomatic?.Invoke();
+                                //OnAutomatic?.Invoke();
                                 //prueba2
                                 /*if (temperatureControl._CurrentTemperture <= 111)// ******ver si se actualiza el valor**********
                                 {

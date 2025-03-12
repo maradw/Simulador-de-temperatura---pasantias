@@ -72,14 +72,15 @@ public class WatterLevel : MonoBehaviour
     }
     void FillUpWater()
     {
-        //solo esto deberia ir en el update creo *inserte gif de bebe ceniza*
         _level += Time.deltaTime * _fillSpeed;
         _waterShader.SetFloat("_fiil", _level);
+        //solo esto deberia ir en el update creo *inserte gif de bebe ceniza*
+
         // hasta aqui
 
 
         // Debug.Log(_level);
-       
+
     }
     public bool GetIsWaterLow()
     {
@@ -104,6 +105,8 @@ public class WatterLevel : MonoBehaviour
     }
     void AutomaticFill() //funciona
     {
+        /*_level += Time.deltaTime * _fillSpeed;
+        _waterShader.SetFloat("_fiil", _level);*/
         Debug.Log("pqnoprende");
         if (_level >= _minLevelB && _level <=_maxLevelA )//actualizar en el proceso
         {
