@@ -9,13 +9,22 @@ public class TemperatureControl : MonoBehaviour
     public float _MaxTemperature=  105;//NOSE
     public float _CurrentTemperture;
     float _Inicialtemperature = 27;
-    float _ConstantHeating = 1f; // Ajusta qué tan rápido sube la temperatura
+    float _ConstantHeating = 0.05f; // Ajusta qué tan rápido sube la temperatura
     float _time = 0f;
     float _dangerTemp = 110;
     Renderer tankRenderer;
     float _waterLevel;
 
     bool lightOn;
+    bool _fireOff;
+    bool isFireOff()
+    {
+        return _fireOff;
+    }
+    public void SetIsFireOff(bool isFireOff)
+    {
+        _fireOff = isFireOff;
+    }
     [SerializeField] TextMeshProUGUI temperature;
 
    [SerializeField] particleController particleControl;
@@ -70,12 +79,12 @@ public class TemperatureControl : MonoBehaviour
         if (_waterControl.GetWaterLevel() >= -1f && _waterControl.GetWaterLevel() <= 4f)//2.5 a 1, solo pruebas
         {
             //_time = 0f;
-            _ConstantHeating = 1f; //noseo
-            Debug.Log("ya no funciona wazaa");
+            _ConstantHeating = 0.04f; //noseo
+            //Debug.Log("ya no funciona wazaa");
         }
         else
         {
-            _ConstantHeating = 1f;
+            _ConstantHeating = 0.05f;
         }
         if (_waterTemp >= _waterBoil)
         {
@@ -90,6 +99,11 @@ public class TemperatureControl : MonoBehaviour
             //Debug.Log("noseapagacausa");
             //apagar el fuego, prender la luz amarilla
         }
+        if(_fireOff == true)
+        {
+            _CurrentTemperture -= 0.005f;
+        }
+        Debug.Log("causa esto es:" + _fireOff);
 
     }
 
@@ -98,6 +112,7 @@ public class TemperatureControl : MonoBehaviour
         Debug.Log("DIAVLO,apagate p");
         if (_CurrentTemperture>=_MaxTemperature)
         {
+            _fireOff = true;
             particleControl.StopFire();
         }
     }

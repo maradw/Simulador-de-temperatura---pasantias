@@ -53,6 +53,7 @@ public class ControlPanel : MonoBehaviour
             if(temperatureControl._CurrentTemperture<= temperatureControl._MaxTemperature)
             {
                 OnFireOn?.Invoke(); //problema; detecta el cambio de estado y enciende el fuego
+                temperatureControl.SetIsFireOff(false);
             }
             OnSimulatorOn?.Invoke();
             
@@ -146,7 +147,11 @@ public class ControlPanel : MonoBehaviour
                     {
                         //apagado//apagado//apagado//apagado//apagado//apagado//apagado//apagado
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, -27);
-                        OnSimulatorStop?.Invoke();
+
+
+                        OnFireOff?.Invoke();
+                        temperatureControl.SetIsFireOff(true);
+                        //OnSimulatorStop?.Invoke();
                         // _panelLights[0].enabled = false;
                         _panelLights[4].enabled = false;
                     }
