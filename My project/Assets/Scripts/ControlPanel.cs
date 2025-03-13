@@ -31,6 +31,9 @@ public class ControlPanel : MonoBehaviour
 
 
     bool isOn = false;
+
+
+    bool isEmergency = false;
     //switchers
     [SerializeField] private GameObject[] _switchers;
     private Camera mainCamera;
@@ -50,13 +53,16 @@ public class ControlPanel : MonoBehaviour
         DetectButtonPress();
         if (_switchState)
         {
+            
             if(temperatureControl._CurrentTemperture<= temperatureControl._MaxTemperature)
             {
-                OnFireOn?.Invoke(); //problema; detecta el cambio de estado y enciende el fuego
+                 //problema; detecta el cambio de estado y enciende el fuego
                 temperatureControl.SetIsFireOff(false);
             }
-            OnSimulatorOn?.Invoke();
-            
+            if(isEmergency == false)//creo q es este el NUEVOPROBLEMA
+            {
+                OnSimulatorOn?.Invoke();
+            }
             // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
             if (_stateType == 0)
             {
@@ -77,12 +83,6 @@ public class ControlPanel : MonoBehaviour
             {
                 _panelLights[3].enabled = false;
             }
-
-            /*if (_stateType == 0 || _stateType == 1 || _stateType == 2)
-            {
-                
-            }*/
-            // OnSimulatorOn?.Invoke();
             if (temperatureControl.isOverload() == true)//creo q vamos a tener q cambiar ese if x un while
             {
                 _panelLights[1].enabled = true;
@@ -99,16 +99,18 @@ public class ControlPanel : MonoBehaviour
             {
                 _panelLights[4].enabled = false;
                // _panelLights[1].enabled = false;
-            }
-
-            
+            }   
         }
         //en el automatico
         if (temperatureControl._CurrentTemperture <= 115)
         {
             //apagar el fuego
         }
-
+        /*if (_stateType == 0 || _stateType == 1 || _stateType == 2)
+            {
+                
+            }*/
+        // OnSimulatorOn?.Invoke();
         void DetectButtonPress()
         {
 
@@ -143,6 +145,7 @@ public class ControlPanel : MonoBehaviour
                 case 1:
                     Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
                     // _switchState = true;
+                    isEmergency = false;
                     if (_switchState)
                     {
                         //apagado//apagado//apagado//apagado//apagado//apagado//apagado//apagado
@@ -151,7 +154,7 @@ public class ControlPanel : MonoBehaviour
 
                         OnFireOff?.Invoke();
                         temperatureControl.SetIsFireOff(true);
-                        //OnSimulatorStop?.Invoke();
+                       // OnSimulatorStop?.Invoke();
                         // _panelLights[0].enabled = false;
                         _panelLights[4].enabled = false;
                     }
@@ -161,6 +164,7 @@ public class ControlPanel : MonoBehaviour
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, 30);
                         //OnFireOn?.Invoke();
                         //_panelLights[2].enabled = true;
+                        OnFireOn?.Invoke();
                         Debug.Log("qfue");
                     }
                     _switchState = !_switchState;
@@ -228,8 +232,11 @@ public class ControlPanel : MonoBehaviour
 
                 case 7:
                     Debug.Log("Botón 8 presionado - parada de emergencia");
+                    isEmergency = true;
+                    OnFireOff?.Invoke();
+                    temperatureControl.SetIsFireOff(true);
                     OnEmergency?.Invoke();
-                    OnSimulatorStop?.Invoke();//aquiseapaga falta añadir el agua al mismo evento //agua y temp luces quemador
+                   // OnSimulatorStop?.Invoke();//aquiseapaga falta añadir el agua al mismo evento //agua y temp luces quemador
                     _panelLights[2].enabled = false;
                     break;
                 default:

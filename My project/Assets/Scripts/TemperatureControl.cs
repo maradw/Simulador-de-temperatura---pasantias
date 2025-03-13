@@ -99,9 +99,9 @@ public class TemperatureControl : MonoBehaviour
             //Debug.Log("noseapagacausa");
             //apagar el fuego, prender la luz amarilla
         }
-        if(_fireOff == true)
+        if(_fireOff == true && _CurrentTemperture>=_Inicialtemperature)
         {
-            _CurrentTemperture -= 0.005f;
+            _CurrentTemperture -= 0.001f;
         }
         Debug.Log("causa esto es:" + _fireOff);
 
