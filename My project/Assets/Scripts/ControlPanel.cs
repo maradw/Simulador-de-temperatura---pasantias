@@ -57,12 +57,13 @@ public class ControlPanel : MonoBehaviour
             if(temperatureControl._CurrentTemperture<= temperatureControl._MaxTemperature)
             {
                  //problema; detecta el cambio de estado y enciende el fuego
-                temperatureControl.SetIsFireOff(false);
+               // nose´pa q era esto XDDD temperatureControl.SetIsFireOff(false);
             }
-            if(isEmergency == false)//creo q es este el NUEVOPROBLEMA
+            if(isEmergency == false)//creo q es este el NUEVOPROBLEMA XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
             {
                 OnSimulatorOn?.Invoke();
             }
+            
             // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
             if (_stateType == 0)
             {
@@ -145,9 +146,10 @@ public class ControlPanel : MonoBehaviour
                 case 1:
                     Debug.Log("Botón 2 presionado - off/on \n prender el faro ese XD");
                     // _switchState = true;
-                    isEmergency = false;
+                    //isEmergency = false;
                     if (_switchState)
                     {
+                        isEmergency = false;
                         //apagado//apagado//apagado//apagado//apagado//apagado//apagado//apagado
                         _switchers[0].transform.eulerAngles = new Vector3(0, 0, -27);
 
@@ -234,7 +236,7 @@ public class ControlPanel : MonoBehaviour
                     Debug.Log("Botón 8 presionado - parada de emergencia");
                     isEmergency = true;
                     OnFireOff?.Invoke();
-                    temperatureControl.SetIsFireOff(true);
+                    //temperatureControl.SetIsFireOff(true);
                     OnEmergency?.Invoke();
                    // OnSimulatorStop?.Invoke();//aquiseapaga falta añadir el agua al mismo evento //agua y temp luces quemador
                     _panelLights[2].enabled = false;

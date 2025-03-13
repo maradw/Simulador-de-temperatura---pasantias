@@ -38,8 +38,11 @@ public class WatterLevel : MonoBehaviour
     }
     void Update()
     {
-        _waterLevel.text = "water level: " + _level;
-        if (_level >= _minLevelA && _level <= _minLevelB)
+        if ()
+        {
+            _waterLevel.text = "water level: " + _level;
+        }
+        else if (_level >= _minLevelA && _level <= _minLevelB)
         {
             _isWaterLow = true;
             // Debug.Log("se esta secando causa, prende la luz roja");
@@ -48,8 +51,7 @@ public class WatterLevel : MonoBehaviour
         {
             _isWaterLow = false;
         }
-
-
+        
         else if (_level >= _maxLevelA && _level <= _maxLevelB)
         {
             // Debug.Log("mucha awa causa");
