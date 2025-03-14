@@ -59,15 +59,16 @@ public class ControlPanel : MonoBehaviour
                  //problema; detecta el cambio de estado y enciende el fuego
                // nose´pa q era esto XDDD temperatureControl.SetIsFireOff(false);
             }
-            if(isEmergency == false)//creo q es este el NUEVOPROBLEMA XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+            if(isEmergency ==true)//creo q es este el NUEVOPROBLEMA XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
             {
-                OnSimulatorOn?.Invoke();
+                temperatureControl.SetIsFireOff(true); //nonono
+                Debug.Log("qsalgayacsm");
             }
-            
+            OnSimulatorOn?.Invoke();
             // Debug.Log("prendio");//lo de prenderla temperatura // aqui para apapar si se sobrecalientala tmepratura
             if (_stateType == 0)
             {
-                Debug.Log("questapasando" +  _stateType);
+               // Debug.Log("questapasando" +  _stateType);
                // OnSimulatorOn?.Invoke();
                 OnAutomatic?.Invoke();
 
@@ -78,7 +79,7 @@ public class ControlPanel : MonoBehaviour
                 OnManual?.Invoke();
                 // OnSimulatorOn?.Invoke();
                 _panelLights[3].enabled = true;
-                Debug.Log("qsalgayacsm" + _stateType);
+                // + _stateType);
             }
             else
             {
@@ -89,12 +90,12 @@ public class ControlPanel : MonoBehaviour
                 _panelLights[1].enabled = true;
                 //OnFireOff?.Invoke();
                 //_panelLights[3].enabled = false; //y la luz para cuando
-                Debug.Log("ymiluzamarillacausa");
+                //Debug.Log("ymiluzamarillacausa");
             }
             else if(waterLevel.GetIsWaterLow() == true) //miedo terror ozuna
             {
                 _panelLights[4].enabled = true;
-                Debug.Log("ymiluzrojacausa"); 
+                //Debug.Log("ymiluzrojacausa"); 
             }
             else
             {
@@ -234,7 +235,7 @@ public class ControlPanel : MonoBehaviour
 
                 case 7:
                     Debug.Log("Botón 8 presionado - parada de emergencia");
-                    isEmergency = true;
+                   isEmergency = true;
                     OnFireOff?.Invoke();
                     //temperatureControl.SetIsFireOff(true);
                     OnEmergency?.Invoke();

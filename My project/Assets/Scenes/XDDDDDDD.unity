@@ -19465,6 +19465,7 @@ MonoBehaviour:
   - {fileID: 1821612836}
   temperatureControl: {fileID: 1450317067}
   waterLevel: {fileID: 1705105495}
+  isEmergency: 0
   _switchers:
   - {fileID: 335385873}
   - {fileID: 122085664}
@@ -19748,7 +19749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b77d21c5b9d00a44a7f58aa9ef7a283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alarmSource: {fileID: 1376118229}
+  _alarmSource: {fileID: 0}
 --- !u!82 &1376118229
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19981,6 +19982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af72e3190ef62d439b05fb133cf623b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MaxTemperature: 110
   _CurrentTemperture: 0
   temperature: {fileID: 1268447023}
   particleControl: {fileID: 1552497452}
@@ -30136,6 +30138,7 @@ MonoBehaviour:
   _waterShader: {fileID: 2100000, guid: 6f9734e48812eab4e9a06c8dcb5e3ef6, type: 2}
   _fillSpeed: 0.1
   _waterLevel: {fileID: 978440390}
+  _controlPanel: {fileID: 1257065116}
 --- !u!4 &1705105496
 Transform:
   m_ObjectHideFlags: 0

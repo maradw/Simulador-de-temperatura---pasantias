@@ -103,7 +103,7 @@ public class TemperatureControl : MonoBehaviour
         {
             _CurrentTemperture -= 0.001f;
         }
-        Debug.Log("causa esto es:" + _fireOff);
+      //  Debug.Log("causa esto es:" + _fireOff);
 
     }
 
