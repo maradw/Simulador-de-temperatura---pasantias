@@ -8,7 +8,7 @@ public class WatterLevel : MonoBehaviour
     [SerializeField] private float _fillSpeed = 0.01f;
 
     [SerializeField] TextMeshProUGUI _waterLevel;
-
+    [SerializeField] ControlPanel _controlPanel;
     float _level = -5.4f;
 
     float _minLevelA = -5.4f; //rango minimo
@@ -38,11 +38,12 @@ public class WatterLevel : MonoBehaviour
     }
     void Update()
     {
-        if ()
+        if (_controlPanel.isEmergency != true)
         {
             _waterLevel.text = "water level: " + _level;
         }
-        else if (_level >= _minLevelA && _level <= _minLevelB)
+        
+        if (_level >= _minLevelA && _level <= _minLevelB)
         {
             _isWaterLow = true;
             // Debug.Log("se esta secando causa, prende la luz roja");
@@ -103,33 +104,41 @@ public class WatterLevel : MonoBehaviour
     
    void ManualFill()
     {
-        FillUpWater();
+        if (_controlPanel.isEmergency != true)
+        {
+            FillUpWater();
+        }
+       
     }
     void AutomaticFill() //funciona
     {
-        /*_level += Time.deltaTime * _fillSpeed;
-        _waterShader.SetFloat("_fiil", _level);*/
-        Debug.Log("pqnoprende");
-        if (_level >= _minLevelB && _level <=_maxLevelA )//actualizar en el proceso
+        if (_controlPanel.isEmergency != true)
         {
-            FillUpWater();
-            Debug.Log("modo automatico wazaaaaaaaa");
-        }
-        else if (_level <= _minLevelB )//bool de encendido
-        {
-            Debug.Log("para iniciar wazaaaa");
-            FillUpWater();
-        }
-        else if (_level >= _maxLevelA && _level <= _maxLevelB)//nofijoXD
-        {
-            // Debug.Log("mucha awa causa");
-            UnfillWater();
+            Debug.Log("pqnoprende");
+            if (_level >= _minLevelB && _level <= _maxLevelA)//actualizar en el proceso
+            {
+                FillUpWater();
+                Debug.Log("modo automatico wazaaaaaaaa");
+            }
+            else if (_level <= _minLevelB)//bool de encendido
+            {
+                Debug.Log("para iniciar wazaaaa");
+                FillUpWater();
+            }
+            else if (_level >= _maxLevelA && _level <= _maxLevelB)//nofijoXD
+            {
+                // Debug.Log("mucha awa causa");
+                UnfillWater();
 
+            }
+            else //estable
+            {
+                Debug.Log("sufiente agua, wazaaaaaaa");
+            }
         }
-        else //estable
-        {
-            Debug.Log("sufiente agua, wazaaaaaaa");
-        }
+            /*_level += Time.deltaTime * _fillSpeed;
+            _waterShader.SetFloat("_fiil", _level);*/
+      
 
     }
 

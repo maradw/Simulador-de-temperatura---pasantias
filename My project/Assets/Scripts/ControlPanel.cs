@@ -33,7 +33,7 @@ public class ControlPanel : MonoBehaviour
     bool isOn = false;
 
 
-    bool isEmergency = false;
+    public bool isEmergency = false;
     //switchers
     [SerializeField] private GameObject[] _switchers;
     private Camera mainCamera;
